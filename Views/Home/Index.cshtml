@@ -1,0 +1,9 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<h2>@ViewBag.Message</h2>
+<p>
+    @Html.ActionLink("Add Contact", "Create","Person", new { }, new { data_role = "button", data_icon = "plus" })
+</p>
+

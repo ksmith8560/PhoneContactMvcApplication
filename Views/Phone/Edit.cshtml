@@ -1,0 +1,54 @@
+﻿@model PhoneContactMvcApplication.Models.Phone
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Phone</legend>
+
+        @Html.HiddenFor(model => model.PhoneID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Number)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Number)
+            @Html.ValidationMessageFor(model => model.Number)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PersonID, "People")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("PersonID", String.Empty)
+            @Html.ValidationMessageFor(model => model.PersonID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PhoneTypeID, "PhoneTypes")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("PhoneTypeID", String.Empty)
+            @Html.ValidationMessageFor(model => model.PhoneTypeID)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Manage Phone Types", "Index","PhoneType", new { },new { data_role = "button" , data_icon="grid" })
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

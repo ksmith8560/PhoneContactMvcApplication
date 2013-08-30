@@ -1,0 +1,44 @@
+﻿@model PhoneContactMvcApplication.Models.Person
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Person</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.First)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.First)
+            @Html.ValidationMessageFor(model => model.First)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Last)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Last)
+            @Html.ValidationMessageFor(model => model.Last)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index", new { },new { data_role = "button" , data_icon="grid" })
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

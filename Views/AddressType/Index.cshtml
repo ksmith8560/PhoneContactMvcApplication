@@ -1,0 +1,36 @@
+﻿@model IEnumerable<PhoneContactMvcApplication.Models.AddressType>
+
+@{
+    ViewBag.Title = "Address Types";
+}
+
+<p>
+    @Html.ActionLink("Create New", "Create", new { }, new { data_role = "button", data_icon = "plus" })
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Type)
+        </th>
+       
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Type)
+        </td>
+       
+        <td>
+            <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+            @Html.ActionLink("Edit", "Edit", new { id=item.AddressTypeID },new { data_role = "button" , data_icon="plus" }) 
+            @Html.ActionLink("Details", "Details", new { id=item.AddressTypeID },new { data_role = "button" , data_icon="grid" }) 
+            @Html.ActionLink("Delete", "Delete", new { id=item.AddressTypeID },new { data_role = "button" , data_icon="delete" })
+            </div>
+              
+        </td>
+    </tr>
+}
+
+</table>

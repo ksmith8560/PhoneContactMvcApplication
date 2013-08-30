@@ -1,0 +1,22 @@
+﻿@model PhoneContactMvcApplication.Models.PhoneType
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>PhoneType</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Type)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Type)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.PhoneTypeID }) |
+    @Html.ActionLink("Back to List", "Index", new { },new { data_role = "button" , data_icon="grid" })
+</p>

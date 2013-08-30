@@ -1,0 +1,36 @@
+﻿@model PhoneContactMvcApplication.Models.Phone
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Phone</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Number)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Number)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.People.First)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.People.First)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PhoneTypes.Type)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PhoneTypes.Type)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.PhoneID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

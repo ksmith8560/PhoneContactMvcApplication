@@ -1,0 +1,54 @@
+﻿@model PhoneContactMvcApplication.Models.Person
+
+@{
+    ViewBag.Title = "Contact Info";
+}
+
+<fieldset>
+   
+    <H2>
+        @Html.DisplayFor(model => model.First)  @Html.DisplayFor(model => model.Last)
+    </H2>
+    <h3>Phone Numbers</h3>
+    <div data-role="collapsible-set" data-theme="c" data-content-theme="d">
+   @foreach (var item in Model.Phone) {
+         <div data-role="collapsible">
+        <h3>@item.PhoneTypes.Type</h3>
+        <p>@item.Number     <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+    @Html.ActionLink("Edit", "Edit","Phone", new { id=item.PhoneID },new { data_role = "button" , data_icon="plus" }) 
+    @Html.ActionLink("Delete", "Delete","Phone", new { id=item.PhoneID}, new { data_role = "button", data_icon = "delete" })
+          </div></p>
+    </div>  
+
+   }
+</div>
+
+    <p>
+    @Html.ActionLink("Add Phone", "Create","Phone", new { personId = Model.PersonID }, new { data_role = "button", data_icon = "plus" })
+</p>
+
+    <h3>Address</h3>
+
+    <div data-role="collapsible-set" data-theme="c" data-content-theme="d">
+   @foreach (var item in Model.Address) {
+         <div data-role="collapsible">
+        <h3>@item.AddressTypes.Type</h3>
+        <p>@item.Street</p>
+             <p>@item.City , @item.State @item.Zip</p>
+              <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+    @Html.ActionLink("Edit", "Edit","Address", new { id=item.AddressID},new { data_role = "button" , data_icon="plus" }) 
+    @Html.ActionLink("Delete", "Delete","Address", new { id=item.AddressID}, new { data_role = "button", data_icon = "delete" })
+    </div>  
+</div>
+   }
+</div>
+   <p>
+    @Html.ActionLink("Add Address", "Create","Address", new {personId = Model.PersonID }, new { data_role = "button", data_icon = "plus" })
+</p>
+</fieldset>
+<p>
+      <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+    @Html.ActionLink("Edit", "Edit", new { id=Model.PersonID },new { data_role = "button" , data_icon="plus" }) 
+    @Html.ActionLink("Back to List", "Index", new { }, new { data_role = "button", data_icon = "grid" })
+          </div>
+</p>
