@@ -306,6 +306,9 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>PersonModel1.cs</LastGenOutput>
     </Content>
+    <None Include="Properties\PublishProfiles\ksmithPhoneConctact - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\ksmithPhoneConctact - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Models\PersonModel.edmx.sql" />
     <Content Include="Scripts\jquery-1.8.2.js" />
